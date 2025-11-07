@@ -1,8 +1,8 @@
 @charset "utf-8";
 /* CSS Document */
 
-/* 整体 figure 容器：模拟代码编辑器风格 */
-.custom-figure {
+/* 整体 figure 容器：叠加文章根容器 #article-container 增强特异性 */
+#article-container .custom-figure {
   background-color: #282c34; /* 深色背景 */
   border-radius: 8px;
   padding: 20px;
@@ -11,25 +11,29 @@
   font-family: "Consolas", "Monaco", monospace; /* 等宽字体，适配代码 */
 }
 
-/* YML 代码块：语法着色 + 排版 */
-.yml-code div {
+/* YML 代码块：通过完整父级路径增强层级 */
+#article-container .custom-figure .yml-code div {
   line-height: 1.6;
   font-size: 14px;
   margin-bottom: 2px;
 }
-.yml-code .attr { color: #f1fa8c; } /* 属性颜色（类似 YML 键名） */
-.yml-code .string { color: #61afef; } /* 字符串颜色（类似 YML 值） */
+#article-container .custom-figure .yml-code .attr { 
+  color: #f1fa8c; /* 属性颜色（类似 YML 键名） */
+}
+#article-container .custom-figure .yml-code .string { 
+  color: #61afef; /* 字符串颜色（类似 YML 值） */
+}
 
-/* 图标组：颜色 + 间距 */
-.icon-group {
+/* 图标组：通过完整父级路径增强层级 */
+#article-container .custom-figure .icon-group {
   margin: 15px 0;
 }
-.icon-group i {
+#article-container .custom-figure .icon-group i {
   color: #61afef; /* 图标颜色，与代码风格统一 */
   margin-right: 8px;
   font-size: 16px;
 }
-.icon-group div {
+#article-container .custom-figure .icon-group div {
   display: inline-block;
   margin: 0 8px;
 }
